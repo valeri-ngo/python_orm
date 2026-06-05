@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+
+db.sqlite3
+
+*.zip
+
+.~lock.*
+
+* (Copy).py
+
+.venv/
+venv/
+
+.idea/
+.vscode/
