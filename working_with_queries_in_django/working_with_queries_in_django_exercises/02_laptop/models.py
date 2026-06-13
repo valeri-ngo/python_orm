@@ -33,6 +33,7 @@ class Laptop(models.Model):
         help_text='Storage in GB'
     )
     operation_system = models.CharField(
+        max_length= 20,
         choices=OS_CHOICES
     )
     price = models.DecimalField(

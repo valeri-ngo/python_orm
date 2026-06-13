@@ -10,8 +10,8 @@ from main_app.models import ChessPlayer
 
 # Create and check models
 
-#Lab-03 Chess Player
-def bulk_create_chess_players(args: List[ChessPlayer]):
+#Exercise-03 Chess Player
+def bulk_create_chess_players(args):
     ChessPlayer.objects.bulk_create(args)
 
 def delete_chess_players():
@@ -25,6 +25,9 @@ def change_chess_games_lost():
 
 def change_chess_games_drawn():
     ChessPlayer.objects.all().update(games_drawn = 10)
+
+def grand_chess_title_GM():
+    ChessPlayer.objects.filter(rating__gte = 2400).update(title = 'GM')
 
 def grand_chess_title_IM():
     ChessPlayer.objects.filter(rating__range = (2300, 2399)).update(title = 'IM')

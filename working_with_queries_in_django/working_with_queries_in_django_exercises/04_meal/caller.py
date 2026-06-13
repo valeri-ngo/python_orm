@@ -9,42 +9,24 @@ django.setup()
 from main_app.models import Meal
 
 # Create and check models
-#Lab-04 Meal
+#Exercise-04 Meal
 def set_new_chefs():
-    meals = Meal.objects.all()
+    Meal.objects.filter(meal_type = 'Breakfast').update(chef = 'Gordon Ramsay')
 
-    for meal in meals:
-        if meal.meal_type == 'Breakfast':
-            meal.chef = 'Gordon Ramsay'
-        
-        elif meal.meal_type == 'Lunch':
-            meal.chef = 'Julia Child'
-        
-        elif meal.meal_type == 'Dinner':
-            meal.chef = 'Jamie Oliver'
+    Meal.objects.filter(meal_type = 'Lunch').update(chef = 'Julia Child')
 
-        else:
-            meal.chef = 'Thomas Keller'
-        
-        meal.save()
+    Meal.objects.filter(meal_type = 'Dinner').update(chef = 'Jamie Oliver')
+
+    Meal.objects.filter(meal_type = 'Snack').update(chef = 'Thomas Keller')
 
 def set_new_preparation_times():
-    meals = Meal.objects.all()
+    Meal.objects.filter(meal_type = 'Breakfast').update(preparation_time = '10 minutes')
 
-    for meal in meals:
-        if meal.meal_type == 'Breakfast':
-            meal.preparation_time = '10 minutes'
+    Meal.objects.filter(meal_type = 'Lunch').update(preparation_time = '12 minutes')
 
-        elif meal.meal_type == 'Lunch':
-            meal.preparation_time = '12 minutes'
+    Meal.objects.filter(meal_type = 'Dinner').update(preparation_time = '15 minutes')
 
-        elif meal.meal_type == 'Dinner':
-            meal.preparation_time = '15 minutes'
-
-        else:
-            meal.preparation_time = '5 minutes'
-        
-        meal.save()
+    Meal.objects.filter(meal_type = 'Snack').update(preparation_time = '5 minutes')
 
 def update_low_calorie_meals():
     Meal.objects.filter(meal_type__in = ['Breakfast', 'Dinner']).update(calories = 400)
