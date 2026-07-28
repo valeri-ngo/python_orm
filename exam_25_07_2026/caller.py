@@ -253,109 +253,108 @@ UPDATE book
 
     return f"Prices increased for {updated_books} book/s."
 
-# def populate_db():
+def populate_db():
 
-#     # Creating publishers
+    # Creating publishers
 
-#     publisher1 = Publisher.objects.create(
-#         name = 'Epic Reads',
-#         country = 'U.S.',
-#         established_date = '1923-05-15',
-#         rating = 4.94,
-#     )
-#     publisher2 = Publisher.objects.create(
-#         name = 'Global Prints',
-#         country = 'Australia',
-#     )
-#     publisher3 = Publisher.objects.create(
-#         name = 'Abrams Books',
-#         rating = 1.05,
-#     )
+    publisher1 = Publisher.objects.create(
+        name = 'Epic Reads',
+        country = 'U.S.',
+        established_date = '1923-05-15',
+        rating = 4.94,
+    )
+    publisher2 = Publisher.objects.create(
+        name = 'Global Prints',
+        country = 'Australia',
+    )
+    publisher3 = Publisher.objects.create(
+        name = 'Abrams Books',
+        rating = 1.05,
+    )
 
-#     # Creating authors
+    # Creating authors
 
-#     author1 = Author.objects.create(
-#         name = 'Jack London',
-#         country = 'U.S.',
-#         birth_date = '1876-01-12',
-#         is_active = False,
-#     )
-#     author2 = Author.objects.create(
-#         name = 'Craig Richardson',
-#     )
-#     author3 = Author.objects.create(
-#         name = 'Ramsey Hamilton',
-#     )
-#     author4 = Author.objects.create(
-#         name = 'Luciano Ramalho',
-#     )
+    author1 = Author.objects.create(
+        name = 'Jack London',
+        country = 'U.S.',
+        birth_date = '1876-01-12',
+        is_active = False,
+    )
+    author2 = Author.objects.create(
+        name = 'Craig Richardson',
+    )
+    author3 = Author.objects.create(
+        name = 'Ramsey Hamilton',
+    )
+    author4 = Author.objects.create(
+        name = 'Luciano Ramalho',
+    )
 
-#     # Creating books
+    # Creating books
 
-#     book1 = Book.objects.create(
-#         title = 'Adventures in Python',
-#         publication_date = '2015-06-01',
-#         summary = 'An engaging and detailed guide to mastering a popular programming language.',
-#         genre = 'Non-Fiction',
-#         price = 49.99,
-#         rating = 4.8,
-#         publisher = publisher1,
-#         main_author = author2,
-#     )
-#     book1.co_authors.add(author3)
+    book1 = Book.objects.create(
+        title = 'Adventures in Python',
+        publication_date = '2015-06-01',
+        summary = 'An engaging and detailed guide to mastering a popular programming language.',
+        genre = 'Non-Fiction',
+        price = Decimal('49.99'),
+        rating = 4.8,
+        publisher = publisher1,
+        main_author = author2,
+    )
+    book1.co_authors.add(author3)
 
-#     book2 = Book.objects.create(
-#         title='The Call of the Wild',
-#         publication_date='1903-11-23',
-#         summary='A classic fiction adventure story set during the Klondike Gold Rush.',
-#         genre='Fiction',
-#         price=29.99,
-#         rating=4.9,
-#         is_bestseller=True,
-#         publisher=publisher2,
-#         main_author=author1,
-#     )
+    book2 = Book.objects.create(
+        title='The Call of the Wild',
+        publication_date='1903-11-23',
+        summary='A classic fiction adventure story set during the Klondike Gold Rush.',
+        genre='Fiction',
+        price=Decimal('29.99'),
+        rating=4.9,
+        is_bestseller=True,
+        publisher=publisher2,
+        main_author=author1,
+    )
 
-#     book3 = Book.objects.create(
-#         title='Django World',
-#         publication_date='2025-01-01',
-#         summary='A comprehensive resource for advanced users of a web development framework.',
-#         genre='Non-Fiction',
-#         price=90.00,
-#         rating=5.0,
-#         publisher=publisher1,
-#         main_author=author2,
-#     )
+    book3 = Book.objects.create(
+        title='Django World',
+        publication_date='2025-01-01',
+        summary='A comprehensive resource for advanced users of a web development framework.',
+        genre='Non-Fiction',
+        price=Decimal('90.00'),
+        rating=5.0,
+        publisher=publisher1,
+        main_author=author2,
+    )
+    book3.co_authors.add(author3, author4)
 
-#     book3.co_authors.add(author4, author3)
-
-#     book4 = Book.objects.create(
-#         title='Integration Testing',
-#         publication_date='2024-12-31',
-#         summary='A thorough exploration of expert-level testing strategies.',
-#         genre='Non-Fiction',
-#         price=89.99,
-#         rating=4.89,
-#         is_bestseller=True,
-#         publisher=publisher1,
-#         main_author=author3,
-#     )
+    book4 = Book.objects.create(
+        title='Integration Testing',
+        publication_date='2024-12-31',
+        summary='A thorough exploration of expert-level testing strategies.',
+        genre='Non-Fiction',
+        price=Decimal('89.99'),
+        rating=4.89,
+        is_bestseller=True,
+        publisher=publisher1,
+        main_author=author3,
+    )
 
 
-#     book5 = Book.objects.create(
-#         title='Unit Testing',
-#         publication_date='2025-02-01',
-#         summary='A detailed guide to foundational testing principles.',
-#         genre='Non-Fiction',
-#         price=50.00,
-#         rating=3.99,
-#         publisher=publisher1,
-#         main_author=author2,
-#     )
+    book5 = Book.objects.create(
+        title='Unit Testing',
+        publication_date='2025-02-01',
+        summary='A detailed guide to foundational testing principles.',
+        genre='Non-Fiction',
+        price=Decimal('50.00'),
+        rating=3.99,
+        publisher=publisher1,
+        main_author=author2,
+    )
 
-#     book5.co_authors.add(author3)
+    book5.co_authors.add(author3)
 
-# populate_db()
+populate_db()
 
 # print(Publisher.objects.get_publishers_by_books_count())
 # print('======================================================================================')
